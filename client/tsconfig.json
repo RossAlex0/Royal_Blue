@@ -1,18 +1,15 @@
 {
   "compilerOptions": {
-    "target": "ES6", // Version JavaScript cible
-    "module": "commonjs", // Système de modules utilisé (ES pour React, CommonJS pour Node.js)
-    "jsx": "react", // Support JSX pour React
-    "strict": true, // Active les vérifications strictes
-    "moduleResolution": "node", // Pour résoudre les modules via Node.js
-    "esModuleInterop": true, // Meilleure compatibilité avec les modules ES6
-    "skipLibCheck": true, // Ignore la vérification des types des librairies
-    "forceConsistentCasingInFileNames": true, // Évite les erreurs de casse dans les noms de fichiers
-    "baseUrl": "./", // Point de base pour les imports
-    "outDir": "./dist", // Dossier de sortie des fichiers compilés
-    "rootDir": "./", // Dossier source pour les fichiers .ts
-    "resolveJsonModule": true // Permet l'importation de fichiers JSON
+    "target": "ES6",
+    "module": "commonjs",
+    "jsx": "react",
+    "strict": true,
+    "esModuleInterop": true,
+    "moduleResolution": "node",
+    "skipLibCheck": true,
+    "forceConsistentCasingInFileNames": true,
+    "resolveJsonModule": true
   },
-  "include": ["client/**/*", "server/src/**/*", "declarations.d.ts"], // Inclure tous les fichiers dans src
-  "exclude": ["node_modules"] // Exclure node_modules
+  "include": ["src/**/*", "declarations.d.ts"],
+  "exclude": ["node_modules"]
 }
