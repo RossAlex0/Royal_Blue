@@ -1,27 +1,30 @@
-// Import the repository modules responsible for handling data operations on the tables
 const ItemRepository = require("./models/ItemRepository");
+const CostumerRepository = require("./models/CostumerRepository");
+const RoomRepository = require("./models/RoomRepository");
+const CommentRepository = require("./models/CommentRepository");
+const CountryRepository = require("./models/CountryRepository");
+const EventRepository = require("./models/EventRepository");
+const ReservationRoomRepository = require("./models/ReservationRoomRepository");
+const ReservationServiceRepository = require("./models/ReservationServiceRepository");
+const RoomStyleRepository = require("./models/RoomStyleRepository");
+const ServiceRepository = require("./models/ServiceRepository");
 
-// Create an empty object to hold data repositories for different tables
 const tables = {};
 
-/* ************************************************************************* */
-// Register data repositories for tables
-/* ************************************************************************* */
-
-// Register each repository as data access point for its table
 tables.item = new ItemRepository();
+tables.costumer = new CostumerRepository();
+tables.room = new RoomRepository();
+tables.comment = new CommentRepository();
+tables.country = new CountryRepository();
+tables.event = new EventRepository();
+tables.resRoom = new ReservationRoomRepository();
+tables.resService = new ReservationServiceRepository();
+tables.roomStyle = new RoomStyleRepository();
+tables.service = new ServiceRepository();
 
-/* ************************************************************************* */
-
-// Use a Proxy to customize error messages when trying to access a non-existing table
-
-// Export the Proxy instance with custom error handling
 module.exports = new Proxy(tables, {
   get(obj, prop) {
-    // Check if the property (table) exists in the tables object
     if (prop in obj) return obj[prop];
-
-    // If the property (table) does not exist, throw a ReferenceError with a custom error message
     throw new ReferenceError(
       `tables.${prop} is not defined. Did you register it in ${__filename}?`
     );
