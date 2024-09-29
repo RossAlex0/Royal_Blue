@@ -12,9 +12,7 @@ class RoomRepository extends AbstractRepository {
         room.name,
         room.sea_view,
         room.nb_bed,
-        room.price,
         room.description,
-        room.picture,
         room.room_style_id,
       ]
     );

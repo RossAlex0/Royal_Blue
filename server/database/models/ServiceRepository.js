@@ -7,8 +7,8 @@ class ServiceRepository extends AbstractRepository {
 
   async create(service) {
     const [result] = await this.database.query(
-      `insert into ${this.table} (name, description, price) values (?, ?, ?)`,
-      [service.name, service.description, service.price]
+      `insert into ${this.table} (name, description) values (?, ?)`,
+      [service.name, service.description]
     );
 
     return result.insertId;
