@@ -1,8 +1,13 @@
-import React from "react";
+import React, { useState } from "react";
+
+import "./NavBar.css";
+import { Link } from "react-router-dom";
 
 export default function NavBar() {
+  const [isActive, setIsActive] = useState(false);
+
   const navElements = [
-    { name: "home" },
+    { name: "Home" },
     { name: "Les chambres" },
     { name: "Les services" },
     { name: "À propos de RoyalBlue" },
@@ -12,10 +17,24 @@ export default function NavBar() {
   return (
     <section className="nav">
       {navElements.map((element) => (
-        <div className="nav_element">
-          <p className="nav_element_text">{element.name}</p>
-        </div>
+        <Link
+          to="#"
+          className={`nav_text ${isActive ? "active" : ""}`}
+          key={element.name}
+        >
+          {element.name}
+        </Link>
       ))}
+      <div className="nav_toggle" onClick={() => setIsActive(!isActive)}>
+        {!isActive ? (
+          <>
+            <p>☰</p>
+            <p>Menu</p>
+          </>
+        ) : (
+          <p>&#215;</p>
+        )}
+      </div>
     </section>
   );
 }
