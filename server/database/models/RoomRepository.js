@@ -7,14 +7,12 @@ class RoomRepository extends AbstractRepository {
 
   async create(room) {
     const [result] = await this.database.query(
-      `insert into ${this.table} (name, sea_view, nb_bed, price, description, picture, room_style_id) values (?, ?, ?, ?, ?, ?, ?)`,
+      `insert into ${this.table} (number, sea_view, nb_bed, price, description, picture, room_style_id) values (?, ?, ?, ?, ?, ?, ?)`,
       [
-        room.name,
+        room.number,
         room.sea_view,
         room.nb_bed,
-        room.price,
         room.description,
-        room.picture,
         room.room_style_id,
       ]
     );
