@@ -3,6 +3,8 @@ import React from "react";
 import NavBar from "../../components/NavBar/NavBar";
 import logoAnimated from "../../assets/images/logoAnimate.svg";
 
+import "./Home.css";
+
 export default function Home() {
   return (
     <section className="home">
