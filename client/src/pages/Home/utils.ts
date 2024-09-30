@@ -1,4 +1,6 @@
-export function backgroundParallaxe(setter: any) {
+export function backgroundParallaxe(
+  setter: (state: { x: number; y: number }) => void
+) {
   const handleMouseMove = (event: MouseEvent) => {
     const { clientX, clientY } = event;
     const x = clientX / window.innerWidth;
@@ -11,10 +13,11 @@ export function backgroundParallaxe(setter: any) {
   };
 }
 
-export function whileNumbers(nb: number) {
+export function whileNumbers(nb: number): { value: number; text: string }[] {
   let array = [];
-  for (let i = 2; i <= nb; i++) {
-    array.push(`${i} personnes`);
+  for (let i = 1; i <= nb; i++) {
+    let entity = i === 1 ? "Personne" : "Personnes";
+    array.push({ value: i, text: `${i} ${entity}` });
   }
   return array;
 }

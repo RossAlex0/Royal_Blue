@@ -18,16 +18,14 @@ export default function Home() {
   const [startDate, setStartDate] = useState<Date | undefined>();
   const [endDate, setEndDate] = useState<Date | undefined>();
 
-  const [nbPerson, setNbPerson] = useState<Array<String> | undefined>();
+  const [numbPerson, setNumbPerson] = useState<
+    { value: number; text: string }[] | undefined
+  >();
 
   useEffect(() => {
     backgroundParallaxe(setMousePosition);
-    setNbPerson(whileNumbers(8));
+    setNumbPerson(whileNumbers(6));
   }, []);
-
-  useEffect(() => {
-    console.info(whileNumbers(8));
-  });
 
   return (
     <section
@@ -55,6 +53,7 @@ export default function Home() {
               selected={startDate}
               onChange={(date: Date | null) => setStartDate(date ?? undefined)}
               selectsStart
+              minDate={new Date()}
               startDate={startDate}
               endDate={endDate}
               placeholderText="Arrivée"
@@ -68,7 +67,7 @@ export default function Home() {
               selectsEnd
               startDate={startDate}
               endDate={endDate}
-              minDate={startDate}
+              minDate={startDate ? startDate : new Date()}
               placeholderText="Départ"
             />
             <img src={Calendar} alt="calendar" />
@@ -76,9 +75,9 @@ export default function Home() {
           <div>
             <span className="home_main_chevron">&#8964;</span>
             <select>
-              <option value="1">1 personne </option>
-              {nbPerson?.map((person) => (
-                <option value={`${person}`}>{person}</option>
+              <option value="1">1 Personne </option>
+              {numbPerson?.map((person) => (
+                <option value={`${person.value}`}>{person.text}</option>
               ))}
             </select>
           </div>
