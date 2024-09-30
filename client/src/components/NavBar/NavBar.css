@@ -43,5 +43,5 @@
 
 .active {
   opacity: 1;
-  transform: translateY(0); /* Réinitialise la position lorsque actif */
+  transform: translateY(0);
 }

@@ -1,0 +1,18 @@
+.buttonValidated {
+  height: 100%;
+  width: 100%;
+  border-radius: 8px;
+  border: none;
+  background: var(--primary-color);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: var(--white-color);
+  font-size: 110%;
+  font-family: var(--text-font);
+  letter-spacing: 2px;
+  cursor: pointer;
+}
+.buttonValidated:hover {
+  border: 1px solid var(--secondary-color);
+}
