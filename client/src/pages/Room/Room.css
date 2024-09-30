@@ -1,0 +1,25 @@
+.room {
+  height: 100vh;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+}
+.room_header {
+  height: 25vh;
+  width: 100%;
+}
+.room_header_picture {
+  height: 18vh;
+  width: 100%;
+  background: url("../../assets/images/headerRoom.svg");
+  background-size: cover;
+  background-position: 50% 78%;
+}
+.room_header_grey {
+  height: 7vh;
+  width: 100%;
+  background-color: var(--grey-color);
+  opacity: 0.4;
+}
+.room_carousel {
+}
