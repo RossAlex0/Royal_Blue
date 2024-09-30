@@ -9,20 +9,22 @@ export default function NavBar() {
   const [isActive, setIsActive] = useState(false);
 
   const navElements = [
-    { name: "Home" },
     { name: "Les chambres" },
     { name: "Les services" },
     { name: "À propos de RoyalBlue" },
     { name: "Contact" },
+    { name: "Connexion" },
   ];
 
   return (
     <header className="nav">
-      <img src={logoAnimated} alt="logo Royal Blue" className="nav_img" />
+      <Link to="/">
+        <img src={logoAnimated} alt="logo Royal Blue" className="nav_img" />
+      </Link>
       <section className="nav_link">
         {navElements.map((element) => (
           <Link
-            to="#"
+            to="/room"
             className={`nav_link_text ${isActive ? "active" : ""}`}
             key={element.name}
           >
