@@ -8,8 +8,8 @@
       rgba(102, 102, 102, 0)
     ),
     url("../../assets/images/homeBackground.svg");
-  background-size: cover, cover;
-  background-position: contain;
+  background-size: 105%, 105%;
+  transition: background-position 0.1s ease-out;
 }
 .home_header {
   width: 100%;
