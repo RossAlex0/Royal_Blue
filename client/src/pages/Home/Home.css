@@ -1,10 +1,11 @@
 .home {
   height: 100vh;
   width: 100%;
-  padding: 2rem;
+  padding: 6rem 2rem 2rem 2rem;
   display: flex;
   flex-direction: column;
-  gap: 25vh;
+  justify-content: center;
+  gap: 20vh;
   background: linear-gradient(
       180deg,
       rgba(0, 0, 0, 0.51),
@@ -14,38 +15,24 @@
   background-size: 105%, 105%;
   transition: background-position 0.1s ease-out;
 }
-.home_header {
-  width: 100%;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-}
-.home_header_img {
-  width: 6rem;
-}
-.home_main {
-  height: 45vh;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-}
-.home_main_text {
+.home_text {
   color: var(--white-color);
   font-family: var(--text-font);
   font-size: 4rem;
-  font-weight: 300;
+  font-weight: 200;
+  margin-top: 10vh;
   text-align: center;
 }
-.home_main_date {
+.home_date {
   height: 6.5vh;
   width: 100%;
   display: flex;
   justify-content: center;
   gap: 1%;
 }
-.home_main_date > div {
+.home_date > div {
   height: 100%;
-  width: 17%;
+  width: 20%;
   border-radius: 8px;
   display: flex;
   justify-content: flex-end;
@@ -68,11 +55,20 @@
   font-weight: lighter;
   cursor: pointer;
 }
-.home_main_date img {
+.home_date_picture {
   position: absolute;
   margin-right: 1rem;
 }
-.home_main_date select {
+.home_date_chevron {
+  position: absolute;
+  margin-top: -0.7rem;
+  margin-right: 1rem;
+  font-size: 1.5rem;
+  color: var(--grey-color);
+  opacity: 0.9;
+  cursor: pointer;
+}
+.home_date_select {
   height: 100%;
   width: 100%;
   padding-inline: 1rem;
@@ -85,14 +81,5 @@
   -moz-appearance: none;
   appearance: none;
   font-size: 17px;
-  cursor: pointer;
-}
-.home_main_chevron {
-  position: absolute;
-  margin-top: -0.7rem;
-  margin-right: 1rem;
-  font-size: 1.5rem;
-  color: var(--grey-color);
-  opacity: 0.9;
   cursor: pointer;
 }
