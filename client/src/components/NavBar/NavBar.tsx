@@ -9,11 +9,11 @@ export default function NavBar() {
   const [isActive, setIsActive] = useState(false);
 
   const navElements = [
-    { name: "Les chambres" },
-    { name: "Les services" },
-    { name: "À propos de RoyalBlue" },
-    { name: "Contact" },
-    { name: "Connexion" },
+    { path: "/room", name: "Les chambres" },
+    { path: "#", name: "Les services" },
+    { path: "#", name: "À propos de RoyalBlue" },
+    { path: "#", name: "Contact" },
+    { path: "#", name: "Connexion" },
   ];
 
   return (
@@ -24,7 +24,7 @@ export default function NavBar() {
       <section className="nav_link">
         {navElements.map((element) => (
           <Link
-            to="/room"
+            to={element.path}
             className={`nav_link_text ${isActive ? "active" : ""}`}
             key={element.name}
           >
