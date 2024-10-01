@@ -45,13 +45,13 @@
   white-space: nowrap;
   transition:
     opacity 1s ease-out,
-    transform 1s ease-out;
+    transform 0.5s ease-out;
   opacity: 0;
   transform: translateY(-150%);
 }
 .nav_link_text:hover {
-  text-decoration: underline;
-  scale: 1.05;
+  transform: scale(1.1);
+  -webkit-text-stroke: 0.3px var(--secondary-color);
 }
 
 .active {

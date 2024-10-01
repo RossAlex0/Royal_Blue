@@ -7,9 +7,10 @@ class RoomRepository extends AbstractRepository {
 
   async create(room) {
     const [result] = await this.database.query(
-      `insert into ${this.table} (number, sea_view, nb_bed, price, description, picture, room_style_id) values (?, ?, ?, ?, ?, ?, ?)`,
+      `insert into ${this.table} (number, name, sea_view, nb_bed, price, description, picture, room_style_id) values (?, ?, ?, ?, ?, ?, ?, ?)`,
       [
         room.number,
+        room.name,
         room.sea_view,
         room.nb_bed,
         room.description,
@@ -30,8 +31,9 @@ class RoomRepository extends AbstractRepository {
   }
 
   async readAll() {
-    const [rows] = await this.database.query(`select * from ${this.table}`);
-
+    const [rows] = await this.database.query(
+      `select ${this.table}.*, room_style.name AS style_name from ${this.table} INNER JOIN room_style ON ${this.table}.room_style_id = room_style.id ORDER BY ${this.table}.number DESC`
+    );
     return rows;
   }
 }

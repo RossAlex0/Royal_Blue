@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 
 import logoAnimated from "../../assets/images/logoAnimate.svg";
@@ -15,6 +15,12 @@ export default function NavBar() {
     { path: "#", name: "Contact" },
     { path: "#", name: "Connexion" },
   ];
+
+  useEffect(() => {
+    if (isActive) {
+      setTimeout(() => setIsActive(false), 10000);
+    }
+  }, [isActive]);
 
   return (
     <header className="nav">
