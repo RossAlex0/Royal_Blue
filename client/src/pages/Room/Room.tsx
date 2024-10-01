@@ -1,33 +1,44 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { Link, useLoaderData } from "react-router-dom";
 
-import { LoaderInterface } from "./type";
-import test from "../../assets/images/headerRoom.svg";
+import { getRoomByStyle } from "../../services/request/get";
+import { LoaderInterface, RoomInterface } from "./type";
 
 import "./Room.css";
+import InputRoom from "../../components/Input/InputRoom/InputRoom";
 
 export default function Room() {
-  const { roomsData, stylesData } = useLoaderData() as LoaderInterface;
-  console.info(roomsData);
+  const roomsData = useLoaderData() as RoomInterface[];
+
+  const [filterRoom, setFilterRoom] = useState<RoomInterface[] | null>(null);
+  const [idStyle, setIdStyle] = useState<string | number | null>(null);
+
+  useEffect(() => {
+    if (idStyle) {
+      getRoomByStyle(idStyle, setFilterRoom);
+    }
+  }, [idStyle]);
+
   return (
     <section className="room">
       <div className="room_header">
         <div className="room_header_picture" />
         <div className="room_header_style">
-          {stylesData.map((style) => (
-            <Link to="#">{style.name}</Link>
-          ))}
+          <InputRoom setter={setIdStyle} />
         </div>
       </div>
       <div className="room_carousel">
-        {roomsData.map((room) => (
-          <article className="room_carousel_article">
-            <img src={test} alt="lit" />
+        {(filterRoom || roomsData).map((room) => (
+          <article className="room_carousel_article" key={room.id}>
+            <img
+              src={`${import.meta.env.VITE_PICTURE_URL}${room.picture}`}
+              alt="lit"
+            />
             <div>
               <h2>{room.name}</h2>
 
               <p>{room.description}</p>
-              <Link to="/">Voir la chambre &#x21d2;</Link>
+              <Link to={`/room/${room.id}`}>Voir la chambre &#x21d2;</Link>
             </div>
           </article>
         ))}

@@ -7,8 +7,7 @@ import { getAllRoom, getAllRoomStyle, getRoom } from "./services/request/get";
 import App from "./App";
 import Home from "./pages/Home/Home";
 import Room from "./pages/Room/Room";
-import RoomDetails from "./pages/RoomDetails/RoomDetails";
-import { error } from "console";
+import RoomDetails from "./pages/Room/RoomDetails/RoomDetails";
 
 const router = createBrowserRouter([
   {
@@ -21,10 +20,7 @@ const router = createBrowserRouter([
       {
         path: "/room",
         element: <Room />,
-        loader: async () => ({
-          roomsData: await getAllRoom(),
-          stylesData: await getAllRoomStyle(),
-        }),
+        loader: getAllRoom,
       },
       {
         path: "/room/:id",
