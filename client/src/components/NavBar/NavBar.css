@@ -33,16 +33,13 @@
 }
 .nav_link_toggle > p:first-child {
   font-size: 3rem;
-  color: var(--white-color);
 }
 .nav_link_toggle > p:last-child {
   margin-top: -0.5rem;
-  color: var(--white-color);
 }
 .nav_link_text {
   display: flex;
   align-items: center;
-  color: var(--white-color);
   font-size: 18px;
   font-weight: bold;
   font-family: var(--text-font);

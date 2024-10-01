@@ -3,6 +3,8 @@
   width: 100%;
   display: flex;
   flex-direction: column;
+  background: url("../../assets/images/backgroundRoom.svg");
+  background-position: 50%;
 }
 .room_header {
   height: 25vh;
@@ -11,27 +13,32 @@
 .room_header_picture {
   height: 18vh;
   width: 100%;
-  background: url("../../assets/images/test2.webp");
   background-size: cover;
   background-position: 50% 75%;
 }
 .room_header_style {
   height: 7vh;
   width: 100%;
-  background-color: var(--grey-color-opacity);
   display: flex;
   justify-content: space-around;
   align-items: center;
+  border-top: 1px solid var(--secondary-color);
+  border-bottom: 1px solid var(--secondary-color);
+
+  background-color: #ffffff94;
 }
-.room_header_style > a {
+.room_header_style > button {
   color: var(--primary-color);
+  background: none;
+  border: none;
+  cursor: pointer;
   padding-inline: 1rem;
   transition: transform 0.5s ease-out;
 }
 
-.room_header_style > a:hover {
+.room_header_style > button:hover {
   transform: scale(1.1);
-  -webkit-text-stroke: 0.3px var(--secondary-color);
+  color: var(--secondary-color);
 }
 .room_carousel {
   height: 75vh;
@@ -42,59 +49,6 @@
   justify-content: center;
   overflow: scroll;
   gap: 5%;
-  background-image: linear-gradient(
-      112.5deg,
-      rgba(231, 231, 231, 0.5) 0%,
-      rgba(231, 231, 231, 0.5) 10%,
-      rgb(195, 195, 195) 10%,
-      rgb(195, 195, 195) 53%,
-      rgb(176, 176, 176) 53%,
-      rgb(176, 176, 176) 55%,
-      rgb(157, 157, 157) 55%,
-      rgb(157, 157, 157) 60%,
-      rgb(137, 137, 137) 60%,
-      rgb(137, 137, 137) 88%,
-      rgb(118, 118, 118) 88%,
-      rgb(118, 118, 118) 91%,
-      rgb(99, 99, 99) 91%,
-      rgb(99, 99, 99) 100%
-    ),
-    linear-gradient(
-      157.5deg,
-      rgba(231, 231, 231, 0.5) 0%,
-      rgba(231, 231, 231, 0.5) 10%,
-      rgb(195, 195, 195) 10%,
-      rgb(195, 195, 195) 53%,
-      rgb(176, 176, 176) 53%,
-      rgb(176, 176, 176) 55%,
-      rgb(157, 157, 157) 55%,
-      rgb(157, 157, 157) 60%,
-      rgb(137, 137, 137) 60%,
-      rgb(137, 137, 137) 88%,
-      rgb(118, 118, 118) 88%,
-      rgb(118, 118, 118) 91%,
-      rgb(99, 99, 99) 91%,
-      rgb(99, 99, 99) 100%
-    ),
-    linear-gradient(
-      405deg,
-      rgba(231, 231, 231, 0.5) 0%,
-      rgba(231, 231, 231, 0.5) 10%,
-      rgb(195, 195, 195) 10%,
-      rgb(195, 195, 195) 53%,
-      rgb(176, 176, 176) 53%,
-      rgb(176, 176, 176) 55%,
-      rgb(157, 157, 157) 55%,
-      rgb(157, 157, 157) 60%,
-      rgb(137, 137, 137) 60%,
-      rgb(137, 137, 137) 88%,
-      rgb(118, 118, 118) 88%,
-      rgb(118, 118, 118) 91%,
-      rgb(99, 99, 99) 91%,
-      rgb(99, 99, 99) 100%
-    ),
-    linear-gradient(360deg, rgb(195, 195, 195), rgb(228, 228, 228));
-  background-blend-mode: overlay, overlay, overlay, normal;
 }
 .room_carousel_article {
   height: 55vh;
@@ -106,6 +60,8 @@
   overflow: hidden;
   font-family: var(--text-font);
   border: 0.5px solid var(--grey-color);
+  box-shadow: 0 0 4px 1px var(--grey-color);
+  background-color: #fff;
 }
 .room_carousel_article img {
   height: 55%;

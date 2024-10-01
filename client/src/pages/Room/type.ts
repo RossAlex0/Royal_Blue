@@ -7,6 +7,7 @@ export interface RoomInterface {
   room_style_id: number;
   sea_view: boolean;
   style_name: string;
+  picture: string;
 }
 export interface StyleInterface {
   id: number;
