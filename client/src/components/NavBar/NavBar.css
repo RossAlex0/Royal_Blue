@@ -10,6 +10,10 @@
 .nav_img {
   width: 6rem;
   cursor: pointer;
+  transition: transform 0.5s ease-out;
+}
+.nav_img:hover {
+  transform: scale(1.1);
 }
 .nav_link {
   height: 3.5rem;
