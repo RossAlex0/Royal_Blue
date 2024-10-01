@@ -30,9 +30,19 @@ class RoomRepository extends AbstractRepository {
     return rows[0];
   }
 
+  async readByStyle(id) {
+    const [rows] = await this.database.query(
+      `SELECT * FROM ${this.table} where room_style_id = ?`,
+      [id]
+    );
+
+    return rows;
+  }
+
   async readAll() {
     const [rows] = await this.database.query(
-      `select ${this.table}.*, room_style.name AS style_name from ${this.table} INNER JOIN room_style ON ${this.table}.room_style_id = room_style.id ORDER BY ${this.table}.number DESC`
+      `select ${this.table}.*, room_style.name AS style_name from ${this.table} 
+      INNER JOIN room_style ON ${this.table}.room_style_id = room_style.id ORDER BY ${this.table}.number ASC`
     );
     return rows;
   }
