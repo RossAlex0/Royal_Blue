@@ -1,5 +1,5 @@
 import myAxios from "../instance";
-import { RoomInterface } from "../../pages/Room/type";
+import { RoomInterface, StyleInterface } from "../../pages/Room/type";
 
 // ## ROOM ## \\
 
@@ -18,7 +18,7 @@ export function getRoom(id: string) {
 }
 
 export function getRoomByStyle(
-  id: number,
+  id: string | number,
   setter: (state: RoomInterface[]) => void
 ) {
   myAxios
@@ -29,9 +29,9 @@ export function getRoomByStyle(
 
 // ## STYLE ## \\
 
-export function getAllRoomStyle() {
-  return myAxios
+export function getAllRoomStyle(setter: (state: StyleInterface[]) => void) {
+  myAxios
     .get("/styles")
-    .then((res) => res.data)
-    .catch((err) => err);
+    .then((res) => setter(res.data))
+    .catch((err) => console.error(err));
 }
