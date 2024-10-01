@@ -2,11 +2,13 @@ import React from "react";
 import ReactDOM from "react-dom/client";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 
-import { getAllRoom, getAllRoomStyle } from "./services/request/get";
+import { getAllRoom, getAllRoomStyle, getRoom } from "./services/request/get";
 
 import App from "./App";
 import Home from "./pages/Home/Home";
 import Room from "./pages/Room/Room";
+import RoomDetails from "./pages/RoomDetails/RoomDetails";
+import { error } from "console";
 
 const router = createBrowserRouter([
   {
@@ -23,6 +25,16 @@ const router = createBrowserRouter([
           roomsData: await getAllRoom(),
           stylesData: await getAllRoomStyle(),
         }),
+      },
+      {
+        path: "/room/:id",
+        element: <RoomDetails />,
+        loader: ({ params }) => {
+          if (!params.id) {
+            throw new Error("Id is undifined");
+          }
+          return getRoom(params.id);
+        },
       },
     ],
   },
