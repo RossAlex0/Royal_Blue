@@ -1,28 +1,30 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { Link, useLoaderData } from "react-router-dom";
 
 import { getRoomByStyle } from "../../services/request/get";
 import { LoaderInterface, RoomInterface } from "./type";
 
 import "./Room.css";
+import InputRoom from "../../components/Input/InputRoom/InputRoom";
 
 export default function Room() {
-  const { roomsData, stylesData } = useLoaderData() as LoaderInterface;
-  console.info(roomsData, stylesData);
+  const roomsData = useLoaderData() as RoomInterface[];
+
   const [filterRoom, setFilterRoom] = useState<RoomInterface[] | null>(null);
-  const HandleFilterRoom = (id: number) => {
-    getRoomByStyle(id, setFilterRoom);
-  };
+  const [idStyle, setIdStyle] = useState<string | number | null>(null);
+
+  useEffect(() => {
+    if (idStyle) {
+      getRoomByStyle(idStyle, setFilterRoom);
+    }
+  }, [idStyle]);
+
   return (
     <section className="room">
       <div className="room_header">
         <div className="room_header_picture" />
         <div className="room_header_style">
-          {stylesData.map((style) => (
-            <button type="button" onClick={() => HandleFilterRoom(style.id)}>
-              {style.name}
-            </button>
-          ))}
+          <InputRoom setter={setIdStyle} />
         </div>
       </div>
       <div className="room_carousel">
