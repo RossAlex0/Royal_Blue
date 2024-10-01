@@ -1,9 +1,10 @@
 import React, { useEffect, useState } from "react";
 import DatePicker from "react-datepicker";
 
-import { backgroundParallaxe, whileNumbers } from "./utils";
+import { backgroundParallaxe } from "./utils";
 
 import ButtonValidated from "../../components/Button/ButtonValidated";
+import InputPerson from "../../components/Input/InputPerson/InputPerson";
 
 import Calendar from "../../assets/images/calendar.svg";
 
@@ -16,13 +17,8 @@ export default function Home() {
   const [startDate, setStartDate] = useState<Date | undefined>();
   const [endDate, setEndDate] = useState<Date | undefined>();
 
-  const [numbPerson, setNumbPerson] = useState<
-    { value: number; text: string }[] | undefined
-  >();
-
   useEffect(() => {
     backgroundParallaxe(setMousePosition);
-    setNumbPerson(whileNumbers(6));
   }, []);
 
   return (
@@ -62,12 +58,7 @@ export default function Home() {
           <img src={Calendar} alt="calendar" className="home_date_picture" />
         </div>
         <div>
-          <span className="home_date_chevron">&#8964;</span>
-          <select className="home_date_select">
-            {numbPerson?.map((person) => (
-              <option value={`${person.value}`}>{person.text}</option>
-            ))}
-          </select>
+          <InputPerson />
         </div>
         <div>
           <ButtonValidated tools={{ type: "button", text: "Réserver" }} />
