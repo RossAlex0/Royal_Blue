@@ -11,6 +11,7 @@
   --primary-color: #020b27;
   --secondary-color: #b99061;
   --white-color: #ffffff;
-  --grey-color: rgb(210, 210, 210);
+  --grey-color-opacity: #e7e7e780;
+  --grey-color: #bebebee6;
   --text-font: "Bona Nova", serif;
 }
