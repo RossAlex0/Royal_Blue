@@ -6,6 +6,8 @@ import { LoaderInterface, RoomInterface } from "./type";
 
 import "./Room.css";
 import InputRoom from "../../components/Input/InputRoom/InputRoom";
+import InputPerson from "../../components/Input/InputPerson/InputPerson";
+import ButtonValidated from "../../components/Button/ButtonValidated";
 
 export default function Room() {
   const roomsData = useLoaderData() as RoomInterface[];
@@ -22,9 +24,14 @@ export default function Room() {
   return (
     <section className="room">
       <div className="room_header">
-        <div className="room_header_picture" />
         <div className="room_header_style">
           <InputRoom setter={setIdStyle} />
+        </div>
+        <div className="room_header_style">
+          <InputPerson />
+        </div>
+        <div className="room_header_style">
+          <ButtonValidated tools={{ text: "Rechercher", type: "button" }} />
         </div>
       </div>
       <div className="room_carousel">
