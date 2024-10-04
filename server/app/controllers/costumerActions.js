@@ -1,5 +1,12 @@
 const tables = require("../../database/tables");
 
+const login = async (req, res, next) => {
+  try {
+    res.sendStatus(200);
+  } catch (err) {
+    next(err);
+  }
+};
 const browse = async (req, res, next) => {
   try {
     const costumers = await tables.costumer.readAll();
@@ -36,6 +43,7 @@ const add = async (req, res, next) => {
   }
 };
 module.exports = {
+  login,
   browse,
   read,
   // edit,
