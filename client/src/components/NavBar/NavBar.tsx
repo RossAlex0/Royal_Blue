@@ -1,8 +1,8 @@
 import React, { useState } from "react";
 import { Link, useLocation } from "react-router-dom";
 
-import logoAnimated from "../../assets/images/logoAnimate.svg";
-import logoDark from "../../assets/images/logoDark.svg";
+import logoAnimated from "../../assets/logo/logoAnimate.svg";
+import logoDark from "../../assets/logo/logoDark.svg";
 
 import "./NavBar.css";
 
