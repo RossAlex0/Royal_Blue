@@ -3,7 +3,7 @@ import React, { useEffect, useState } from "react";
 import { getAllRoomStyle } from "../../../services/request/get";
 import { StyleInterface } from "../../../pages/Room/type";
 
-import bedLogo from "../../../assets/images/bedLogo.svg";
+import bedLogo from "../../../assets/logo/bedLogo.svg";
 import "./InputRoom.css";
 
 export default function InputRoom({

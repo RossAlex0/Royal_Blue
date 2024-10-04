@@ -23,6 +23,19 @@
   margin-top: 10vh;
   text-align: center;
 }
+.home_text > p:first-child {
+  opacity: 0;
+  transform: translateX(-100%);
+  transition: transform 1.5s ease-in-out opacity 1.5s ease-in-out;
+}
+.home_text > p:last-child {
+  opacity: 0;
+  transform: translateX(100%);
+  transition: transform 1.5s ease-in-out opacity 1.5s ease-in-out;
+}
+.home_text_show {
+  animation: containerSlide 3s forwards;
+}
 .home_date {
   height: 6.5vh;
   width: 100%;
@@ -58,4 +71,11 @@
 .home_date_picture {
   position: absolute;
   margin-right: 1rem;
+}
+
+@keyframes containerSlide {
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
 }
