@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Link, useLocation } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 
 import logoAnimated from "../../assets/logo/logoAnimate.svg";
 import logoDark from "../../assets/logo/logoDark.svg";
@@ -8,7 +8,10 @@ import "./NavBar.css";
 
 export default function NavBar() {
   const location = useLocation();
-  const [isActive, setIsActive] = useState(false);
+  const navigate = useNavigate();
+
+  const [isActive, setIsActive] = useState<boolean>(false);
+  const [toLog, setToLog] = useState<boolean>(false);
 
   const navElements = [
     { path: "/room", name: "Les chambres" },
@@ -35,8 +38,13 @@ export default function NavBar() {
       </Link>
       <section className="nav_link">
         {navElements.map((element) => (
-          <Link
-            to={element.path}
+          <button
+            type="button"
+            onClick={() => {
+              element.name === "Connexion"
+                ? setToLog(true)
+                : navigate(element.path);
+            }}
             className={`nav_link_text ${isActive ? "active" : ""}`}
             style={
               location.pathname === "/"
@@ -46,7 +54,7 @@ export default function NavBar() {
             key={element.name}
           >
             {element.name}
-          </Link>
+          </button>
         ))}
         <div className="nav_link_toggle" onClick={() => setIsActive(!isActive)}>
           {!isActive ? (
