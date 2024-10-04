@@ -35,6 +35,14 @@ class CostumerRepository extends AbstractRepository {
 
     return rows;
   }
+
+  async readByEmail(mail) {
+    const [rows] = await this.database.query(
+      `select * from ${this.table} where email = ?`,
+      [mail]
+    );
+    return rows[0];
+  }
 }
 
 module.exports = CostumerRepository;
