@@ -2,8 +2,8 @@
   position: absolute;
   margin-top: -0.7rem;
   margin-right: 1rem;
-  font-size: 1.5rem;
-  color: var(--grey-color);
+  font-size: 1.6rem;
+  color: var(--dark-grey);
   opacity: 0.9;
   cursor: pointer;
 }
@@ -14,7 +14,7 @@
   border: none;
   outline: none;
   font-family: var(--text-font);
-  color: var(--grey-color);
+  color: var(--dark-grey);
   border-radius: 8px;
   -webkit-appearance: none;
   -moz-appearance: none;

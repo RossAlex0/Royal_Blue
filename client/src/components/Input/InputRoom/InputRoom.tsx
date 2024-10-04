@@ -3,6 +3,7 @@ import React, { useEffect, useState } from "react";
 import { getAllRoomStyle } from "../../../services/request/get";
 import { StyleInterface } from "../../../pages/Room/type";
 
+import bedLogo from "../../../assets/images/bedLogo.svg";
 import "./InputRoom.css";
 
 export default function InputRoom({
@@ -29,7 +30,7 @@ export default function InputRoom({
           </option>
         ))}
       </select>
-      <span className="inputRoom_img">&#8964;</span>
+      <img src={bedLogo} className="inputRoom_img" />
     </>
   );
 }

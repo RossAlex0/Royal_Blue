@@ -1,0 +1,21 @@
+.inputRoom_select {
+  height: 100%;
+  width: 100%;
+  padding-inline: 1rem;
+  border: none;
+  outline: none;
+  font-family: var(--text-font);
+  color: var(--dark-grey);
+  border-radius: 8px;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  font-size: 17px;
+  cursor: pointer;
+}
+.inputRoom_img {
+  position: absolute;
+  margin-right: 1rem;
+  opacity: 0.9;
+  cursor: pointer;
+}

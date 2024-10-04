@@ -7,39 +7,24 @@
   background-position: 50%;
 }
 .room_header {
-  height: 25vh;
-  width: 100%;
-}
-.room_header_picture {
-  height: 18vh;
-  width: 100%;
-  background-size: cover;
-  background-position: 50% 75%;
-}
-.room_header_style {
-  height: 7vh;
+  margin-top: 10rem;
+  height: 9vh;
   width: 100%;
   display: flex;
-  justify-content: space-around;
+  justify-content: center;
   align-items: center;
-  border-top: 1px solid var(--secondary-color);
-  border-bottom: 1px solid var(--secondary-color);
-
-  background-color: #ffffff94;
+  gap: 1%;
+  border-bottom: 2px solid #ffffff37;
 }
-.room_header_style > button {
-  color: var(--primary-color);
-  background: none;
-  border: none;
-  cursor: pointer;
-  padding-inline: 1rem;
-  transition: transform 0.5s ease-out;
+.room_header_style {
+  height: 6.5vh;
+  width: 17%;
+  border-radius: 8px;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
 }
 
-.room_header_style > button:hover {
-  transform: scale(1.1);
-  color: var(--secondary-color);
-}
 .room_carousel {
   height: 75vh;
   width: 100%;
