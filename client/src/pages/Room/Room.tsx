@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from "react";
 import { Link, useLoaderData } from "react-router-dom";
 
-import { getRoomByStyle } from "../../services/request/get";
-import { LoaderInterface, RoomInterface } from "./type";
+import { postRoomQuery } from "../../services/request/post";
+import { RoomInterface } from "./type";
 
 import "./Room.css";
 import InputRoom from "../../components/Input/InputRoom/InputRoom";
@@ -13,13 +13,14 @@ export default function Room() {
   const roomsData = useLoaderData() as RoomInterface[];
 
   const [filterRoom, setFilterRoom] = useState<RoomInterface[] | null>(null);
-  const [idStyle, setIdStyle] = useState<string | number | null>(null);
+  const [idStyle, setIdStyle] = useState<string | number | undefined>();
+  const [nbPerson, setNbPerson] = useState<string | number>(1);
 
-  useEffect(() => {
-    if (idStyle) {
-      getRoomByStyle(idStyle, setFilterRoom);
+  const HandleClickSearch = () => {
+    if (nbPerson) {
+      postRoomQuery(nbPerson, setFilterRoom, idStyle);
     }
-  }, [idStyle]);
+  };
 
   return (
     <section className="room">
@@ -28,10 +29,16 @@ export default function Room() {
           <InputRoom setter={setIdStyle} />
         </div>
         <div className="room_header_style">
-          <InputPerson />
+          <InputPerson setter={setNbPerson} />
         </div>
         <div className="room_header_style">
-          <ButtonValidated tools={{ text: "Rechercher", type: "button" }} />
+          <ButtonValidated
+            tools={{
+              text: "Rechercher",
+              type: "button",
+              click: HandleClickSearch,
+            }}
+          />
         </div>
       </div>
       <div className="room_carousel">

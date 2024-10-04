@@ -24,9 +24,13 @@ const read = async (req, res, next) => {
   }
 };
 
-const readByStyle = async (req, res, next) => {
+const readRoomQuery = async (req, res, next) => {
   try {
-    const rooms = await tables.room.readByStyle(req.params.id);
+    const condition = {
+      style_id: req.body.style_id,
+      nb_person: req.body.person / 2,
+    };
+    const rooms = await tables.room.readByStyleAndPerson(condition);
 
     if (rooms == null) {
       res.sendStatus(404);
@@ -52,7 +56,7 @@ const add = async (req, res, next) => {
 module.exports = {
   browse,
   read,
-  readByStyle,
+  readRoomQuery,
   // edit,
   add,
   // destroy,

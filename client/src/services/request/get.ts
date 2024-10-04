@@ -17,16 +17,6 @@ export function getRoom(id: string) {
     .catch((err) => err);
 }
 
-export function getRoomByStyle(
-  id: string | number,
-  setter: (state: RoomInterface[]) => void
-) {
-  myAxios
-    .get(`/rooms/style/${id}`)
-    .then((res) => setter(res.data))
-    .catch((err) => console.error(err));
-}
-
 // ## STYLE ## \\
 
 export function getAllRoomStyle(setter: (state: StyleInterface[]) => void) {

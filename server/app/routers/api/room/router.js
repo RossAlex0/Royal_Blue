@@ -2,17 +2,12 @@ const express = require("express");
 
 const router = express.Router();
 
-const {
-  browse,
-  read,
-  readByStyle,
-  add,
-} = require("../../../controllers/roomActions");
+const actions = require("../../../controllers/roomActions");
 
-router.get("/", browse);
-router.get("/style/:id", readByStyle);
-router.get("/:id", read);
+router.get("/", actions.browse);
+router.get("/:id", actions.read);
 
-router.post("/", add);
+router.post("/", actions.add);
+router.post("/search", actions.readRoomQuery);
 
 module.exports = router;

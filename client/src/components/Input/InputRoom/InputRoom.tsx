@@ -23,7 +23,7 @@ export default function InputRoom({
   return (
     <>
       <select className="inputRoom_select" onChange={HandleChangeIdStyle}>
-        <option value="Chambres">Chambres</option>
+        <option value="">Chambres</option>
         {stylesData?.map((style) => (
           <option key={style.id} value={style.id}>
             {style.name}
