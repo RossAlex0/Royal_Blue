@@ -30,12 +30,19 @@ class RoomRepository extends AbstractRepository {
     return rows[0];
   }
 
-  async readByStyle(id) {
-    const [rows] = await this.database.query(
-      `SELECT * FROM ${this.table} where room_style_id = ?`,
-      [id]
-    );
+  async readByStyleAndPerson(condition) {
+    if (condition.style_id) {
+      const [rows] = await this.database.query(
+        `SELECT * FROM ${this.table} where room_style_id = ? and nb_bed >= ?`,
+        [condition.style_id, condition.nb_person]
+      );
+      return rows;
+    }
 
+    const [rows] = await this.database.query(
+      `SELECT * FROM ${this.table} where nb_bed >= ?`,
+      [condition.nb_person]
+    );
     return rows;
   }
 
