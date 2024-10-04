@@ -16,9 +16,12 @@ export default function Home() {
 
   const [startDate, setStartDate] = useState<Date | undefined>();
   const [endDate, setEndDate] = useState<Date | undefined>();
+  const [isVisible, setIsVisible] = useState<boolean>(false);
+  const [nbPerson, setNbPerson] = useState<string | number>();
 
   useEffect(() => {
     backgroundParallaxe(setMousePosition);
+    setIsVisible(true);
   }, []);
 
   return (
@@ -29,8 +32,12 @@ export default function Home() {
       }}
     >
       <div className="home_text">
-        <p>Découvrez l'art de vivre à la </p>
-        <p>monégasque, entre mer et prestige.</p>
+        <p className={isVisible ? "home_text_show" : ""}>
+          Découvrez l'art de vivre à la{" "}
+        </p>
+        <p className={isVisible ? "home_text_show" : ""}>
+          monégasque, entre mer et prestige.
+        </p>
       </div>
       <div className="home_date">
         <div>
@@ -58,7 +65,7 @@ export default function Home() {
           <img src={Calendar} alt="calendar" className="home_date_picture" />
         </div>
         <div>
-          <InputPerson />
+          <InputPerson setter={setNbPerson} />
         </div>
         <div>
           <ButtonValidated tools={{ type: "button", text: "Réserver" }} />
