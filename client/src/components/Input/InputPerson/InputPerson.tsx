@@ -4,7 +4,11 @@ import React from "react";
 
 import "./InputPerson.css";
 
-export default function InputPerson() {
+export default function InputPerson({
+  setter,
+}: {
+  setter: (state: string | number) => void;
+}) {
   const [numbPerson, setNumbPerson] = useState<
     { value: number; text: string }[] | undefined
   >();
@@ -15,9 +19,14 @@ export default function InputPerson() {
   return (
     <>
       <span className="inputPerson_chevron">&#8964;</span>
-      <select className="inputPerson_select">
+      <select
+        className="inputPerson_select"
+        onChange={(e) => setter(e.target.value)}
+      >
         {numbPerson?.map((person) => (
-          <option value={`${person.value}`}>{person.text}</option>
+          <option value={`${person.value}`} key={person.value}>
+            {person.text}
+          </option>
         ))}
       </select>
     </>
