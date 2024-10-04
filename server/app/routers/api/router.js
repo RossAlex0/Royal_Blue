@@ -14,6 +14,7 @@ const resServiceRouter = require("./resService/router");
 const roomRouter = require("./room/router");
 const roomStyleRouter = require("./roomStyle/router");
 const serviceRouter = require("./service/router");
+const loginRouter = require("./login/router");
 
 router.use("/costumers", costumerRouter);
 router.use("/countries", countryRouter);
@@ -23,6 +24,7 @@ router.use("/resServices", resServiceRouter);
 router.use("/rooms", roomRouter);
 router.use("/styles", roomStyleRouter);
 router.use("/services", serviceRouter);
+router.use("/login", loginRouter);
 
 /* ************************************************************************* */
 
