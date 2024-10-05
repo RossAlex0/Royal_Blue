@@ -4,10 +4,11 @@ import { Link, useLoaderData } from "react-router-dom";
 import { postRoomQuery } from "../../services/request/post";
 import { RoomInterface } from "./type";
 
-import "./Room.css";
 import InputRoom from "../../components/Input/InputRoom/InputRoom";
 import InputPerson from "../../components/Input/InputPerson/InputPerson";
 import ButtonValidated from "../../components/Button/ButtonValidated";
+
+import "./room.css";
 
 export default function Room() {
   const roomsData = useLoaderData() as RoomInterface[];

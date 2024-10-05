@@ -2,7 +2,7 @@ import React from "react";
 
 import { Interface } from "./types";
 
-import "./ButtonValidated.css";
+import "./buttonValidated.css";
 
 export default function ButtonValidated({ tools }: { tools: Interface }) {
   return (

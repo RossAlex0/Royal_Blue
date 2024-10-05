@@ -1,7 +1,8 @@
 import React from "react";
 
-import "./RoomDetails.css";
 import { useLoaderData } from "react-router-dom";
+
+import "./roomDetails.css";
 
 export default function RoomDetails() {
   const roomData = useLoaderData();

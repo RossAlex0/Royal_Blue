@@ -9,7 +9,7 @@ import InputPerson from "../../components/Input/InputPerson/InputPerson";
 import Calendar from "../../assets/images/calendar.svg";
 
 import "react-datepicker/dist/react-datepicker.css";
-import "./Home.css";
+import "./home.css";
 
 export default function Home() {
   const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
