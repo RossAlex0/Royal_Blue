@@ -101,7 +101,7 @@ INSERT INTO service (name, description) VALUES
 ('Centre de bien-être', 'Découvrez notre spa de luxe offrant une sélection de soins relaxants et revitalisants dans un cadre élégant.'),
 ('Salle de fitness', 'Accédez à notre salle de sport haut de gamme, équipée d\'appareils modernes pour un entraînement complet.'),
 ('Service de transferts VIP', 'Profitez d\'un service de transferts exclusifs, disponible en voiture ou en hélicoptère vers des destinations prestigieuses.'),
-('Parking sécurisé', 'Profitez d\'un stationnement sécurisé et exclusif pour votre véhicule tout au long de votre séjour.'),
+('Restaurant', 'Venez savourer une cuisine raffinée dans un cadre élégant, où chaque plat est conçu avec soin à partir d\'ingrédients frais. Profitez d\'un service attentif et d\'une atmosphère propice aux moments inoubliables.'),
 ('Location de yacht de luxe', 'Vivez une expérience inoubliable avec la location de yacht pour des croisières privées sur des eaux cristallines.');
 
 INSERT INTO event (name, description, date_start, date_end, service_id) VALUES 
