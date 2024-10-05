@@ -78,8 +78,8 @@ INSERT INTO room_style (name) VALUES
 ('Chambre Élégance'),  
 ('Chambre Luxe'),    
 ('Suite Royale'),            
-('Chambre Familiale Privilège'),
-('Chambre Exécutive Prestige');  
+('Chambre Privilège'),
+('Chambre Prestige');  
 
 INSERT INTO room (number, sea_view, nb_bed, description, room_style_id, name, picture) VALUES 
 (101, TRUE, 2, 'Chambre Élégance avec vue sur la mer, parfaite pour un séjour romantique. Cette chambre dispose d\'un lit king-size, d\'une salle de bain en marbre avec baignoire, et d\'un balcon privé où vous pourrez admirer le coucher de soleil sur la Méditerranée.', 1, 'Mirage Océanique', "/roomExcel2.svg"),
