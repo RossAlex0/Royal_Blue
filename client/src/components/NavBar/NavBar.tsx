@@ -4,7 +4,7 @@ import { Link, useLocation, useNavigate } from "react-router-dom";
 import logoAnimated from "../../assets/logo/logoAnimate.svg";
 import logoDark from "../../assets/logo/logoDark.svg";
 
-import "./NavBar.css";
+import "./navBar.css";
 
 export default function NavBar() {
   const location = useLocation();

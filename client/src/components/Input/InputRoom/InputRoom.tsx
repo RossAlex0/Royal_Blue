@@ -4,7 +4,7 @@ import { getAllRoomStyle } from "../../../services/request/get";
 import { StyleInterface } from "../../../pages/Room/type";
 
 import bedLogo from "../../../assets/logo/bedLogo.svg";
-import "./InputRoom.css";
+import "./inputRoom.css";
 
 export default function InputRoom({
   setter,

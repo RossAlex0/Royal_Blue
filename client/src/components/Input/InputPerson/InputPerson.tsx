@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import { whileNumbers } from "../../../pages/Home/utils";
 import React from "react";
 
-import "./InputPerson.css";
+import "./inputPerson.css";
 
 export default function InputPerson({
   setter,
