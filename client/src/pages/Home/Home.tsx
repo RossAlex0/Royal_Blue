@@ -6,7 +6,7 @@ import { backgroundParallaxe } from "./utils";
 import ButtonValidated from "../../components/Button/ButtonValidated";
 import InputPerson from "../../components/Input/InputPerson/InputPerson";
 
-import Calendar from "../../assets/images/calendar.svg";
+import Calendar from "../../assets/icon/calendar.svg";
 
 import "react-datepicker/dist/react-datepicker.css";
 import "./home.css";
