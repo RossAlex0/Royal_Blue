@@ -1,6 +1,21 @@
 import myAxios from "../instance";
 import { RoomInterface } from "../../pages/Room/type";
 
+// ## LOGIN ## \\
+
+export function postLogin({
+  mail,
+  password,
+}: {
+  mail: string;
+  password: string;
+}) {
+  myAxios
+    .post("/login", { mail, password })
+    .then((res) => res.data)
+    .catch((err) => console.error(err));
+}
+
 // ## ROOM ## \\
 
 export function postRoomQuery(
@@ -9,7 +24,7 @@ export function postRoomQuery(
   style_id?: string | number | undefined
 ) {
   myAxios
-    .post(`/rooms/search`, { person, style_id })
+    .post("/rooms/search", { person, style_id })
     .then((res) => setter(res.data))
     .catch((err) => console.error(err));
 }
