@@ -18,7 +18,7 @@ export default function NavBar() {
     { path: "#", name: "Les services" },
     { path: "#", name: "À propos de RoyalBlue" },
     { path: "#", name: "Contact" },
-    { path: "#", name: "Connexion" },
+    { path: "/login", name: "Connexion" },
   ];
 
   // useEffect(() => {
