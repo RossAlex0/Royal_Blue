@@ -10,9 +10,9 @@ export function postLogin({
   mail: string;
   password: string;
 }) {
-  myAxios
+  return myAxios
     .post("/login", { mail, password })
-    .then((res) => res.data)
+    .then((res) => console.info(res))
     .catch((err) => console.error(err));
 }
 

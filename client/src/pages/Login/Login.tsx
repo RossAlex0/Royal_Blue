@@ -5,13 +5,16 @@ import InputText from "../../components/Input/inputText/InputText";
 import ButtonValidated from "../../components/Button/ButtonValidated";
 
 import "./login.css";
+import { postLogin } from "../../services/request/post";
 
 export default function Login() {
   const [emailValue, setEmaileValue] = useState<string>();
   const [passwordValue, setPasswordValue] = useState<string>();
 
   const HandleSendLog = () => {
-    // Do something
+    if (emailValue && passwordValue) {
+      postLogin({ mail: emailValue, password: passwordValue });
+    }
   };
 
   return (
