@@ -38,7 +38,10 @@ class CostumerRepository extends AbstractRepository {
 
   async readByEmail(mail) {
     const [rows] = await this.database.query(
-      `select * from ${this.table} where email = ?`,
+      `select ${this.table}.* , country.name as country 
+      from ${this.table} 
+      JOIN country ON country.id = ${this.table}.country_id
+      where email = ?`,
       [mail]
     );
     return rows[0];
