@@ -1,14 +1,15 @@
 import React from "react";
-import { Outlet } from "react-router-dom";
+import { Outlet, useLocation } from "react-router-dom";
 
 import NavBar from "./components/NavBar/NavBar";
 
 import "./style/global.css";
 
 function App() {
+  const location = useLocation();
   return (
     <main>
-      <NavBar />
+      {location.pathname !== "/login" && <NavBar />}
       <Outlet />
     </main>
   );
