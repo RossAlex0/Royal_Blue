@@ -44,8 +44,6 @@
   font-weight: bold;
   font-family: var(--text-font);
   white-space: nowrap;
-  border: none;
-  background: none;
   transition:
     opacity 1s ease-out,
     transform 1s ease-out;

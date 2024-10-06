@@ -18,7 +18,7 @@ export default function NavBar() {
     { path: "#", name: "Les services" },
     { path: "#", name: "À propos de RoyalBlue" },
     { path: "#", name: "Contact" },
-    { path: "#", name: "Connexion" },
+    { path: "/login", name: "Connexion" },
   ];
 
   // useEffect(() => {
@@ -38,13 +38,8 @@ export default function NavBar() {
       </Link>
       <section className="nav_link">
         {navElements.map((element) => (
-          <button
-            type="button"
-            onClick={() => {
-              element.name === "Connexion"
-                ? setToLog(true)
-                : navigate(element.path);
-            }}
+          <Link
+            to={element.path}
             className={`nav_link_text ${isActive ? "active" : ""}`}
             style={
               location.pathname === "/"
@@ -54,7 +49,7 @@ export default function NavBar() {
             key={element.name}
           >
             {element.name}
-          </button>
+          </Link>
         ))}
         <div className="nav_link_toggle" onClick={() => setIsActive(!isActive)}>
           {!isActive ? (
