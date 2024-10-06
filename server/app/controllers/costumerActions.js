@@ -2,9 +2,21 @@ const tables = require("../../database/tables");
 
 const login = async (req, res, next) => {
   try {
-    res.sendStatus(200);
-  } catch (err) {
-    next(err);
+    res
+      .cookie("auth", req.token, {
+        httpOnly: true,
+      })
+      .json({
+        message: "Connexion réussie",
+        id: req.user.id,
+        lastname: req.user.lastname,
+        firstname: req.user.firstname,
+        email: req.user.email,
+        phone: req.user.phone,
+        country: req.user.country,
+      });
+  } catch (error) {
+    next(error);
   }
 };
 const browse = async (req, res, next) => {
