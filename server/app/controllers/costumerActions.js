@@ -45,7 +45,7 @@ const read = async (req, res, next) => {
 
 const add = async (req, res, next) => {
   const costumer = req.body;
-
+  console.info(costumer);
   try {
     const insertId = await tables.costumer.create(costumer);
 
