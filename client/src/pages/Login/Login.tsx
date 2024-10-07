@@ -2,15 +2,16 @@ import React, { useContext, useState } from "react";
 import { useNavigate } from "react-router-dom";
 
 import { UserContext } from "../../services/context/UserContext";
+import { UserContextInterface } from "../../services/context/type";
 import { postLogin } from "../../services/request/post";
 import Register from "../../components/Register/Register";
-
-import logoDark from "../../assets/logo/logoDark.svg";
-import InputText from "../../components/Input/inputText/InputText";
 import ButtonValidated from "../../components/Button/ButtonValidated";
+import InputText from "../../components/Input/inputText/InputText";
 
+import close from "../../assets/icon/close.svg";
+import arrow from "../../assets/icon/arrow.svg";
+import logoDark from "../../assets/logo/logoDark.svg";
 import "./login.css";
-import { UserContextInterface } from "../../services/context/type";
 
 export default function Login() {
   const navigate = useNavigate();
@@ -90,16 +91,19 @@ export default function Login() {
           )}
         </div>
         {switchRegister ? (
-          <span
+          <img
+            src={arrow}
+            alt="arrow"
             className="login_card_return"
             onClick={() => setSwitchRegister(false)}
-          >
-            ⬅
-          </span>
+          />
         ) : (
-          <span className="login_card_return" onClick={() => navigate("/")}>
-            𝗫
-          </span>
+          <img
+            src={close}
+            alt="close"
+            className="login_card_close"
+            onClick={() => navigate("/")}
+          />
         )}
       </div>
     </section>
