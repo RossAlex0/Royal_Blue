@@ -33,7 +33,11 @@ export default function NavBar() {
     <header className="nav">
       <Link to="/">
         <img
-          src={location.pathname === "/" ? logoAnimated : logoDark}
+          src={
+            location.pathname === "/" || location.pathname === "/services"
+              ? logoAnimated
+              : logoDark
+          }
           alt="logo Royal Blue"
           className="nav_img"
         />
@@ -44,7 +48,7 @@ export default function NavBar() {
             to={element.path}
             className={`nav_link_text ${isActive ? "active" : ""}`}
             style={
-              location.pathname === "/"
+              location.pathname === "/" || location.pathname === "/services"
                 ? { color: "#FFF" }
                 : { color: "#020b27" }
             }
@@ -58,7 +62,7 @@ export default function NavBar() {
             <>
               <p
                 style={
-                  location.pathname === "/"
+                  location.pathname === "/" || location.pathname === "/services"
                     ? { color: "#FFF" }
                     : { color: "#020b27" }
                 }
@@ -67,7 +71,7 @@ export default function NavBar() {
               </p>
               <p
                 style={
-                  location.pathname === "/"
+                  location.pathname === "/" || location.pathname === "/services"
                     ? { color: "#FFF" }
                     : { color: "#020b27" }
                 }
@@ -78,7 +82,7 @@ export default function NavBar() {
           ) : (
             <p
               style={
-                location.pathname === "/"
+                location.pathname === "/" || location.pathname === "/services"
                   ? { color: "#FFF" }
                   : { color: "#020b27" }
               }

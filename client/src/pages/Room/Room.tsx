@@ -46,7 +46,7 @@ export default function Room() {
         {(filterRoom || roomsData).map((room) => (
           <article className="room_carousel_article" key={room.id}>
             <img
-              src={`${import.meta.env.VITE_PICTURE_URL}${room.picture}`}
+              src={`${import.meta.env.VITE_PICTURE_ROOM_URL}${room.picture}`}
               alt="lit"
             />
             <div>
