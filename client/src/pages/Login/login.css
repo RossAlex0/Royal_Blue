@@ -82,4 +82,16 @@
   font-family: var(--text-font);
   color: #636363;
   text-decoration: underline;
+  cursor: pointer;
+}
+.login_card_form > p > span:hover {
+  text-decoration: none;
+}
+
+.login_card_return {
+  position: absolute;
+  align-self: flex-start;
+  font-size: 1.8rem;
+  padding: 1.5rem 2rem;
+  cursor: pointer;
 }
