@@ -2,13 +2,14 @@ import React from "react";
 import ReactDOM from "react-dom/client";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 
-import { getAllRoom, getRoom } from "./services/request/get";
+import { getAllRoom, getAllServices, getRoom } from "./services/request/get";
 
 import App from "./App";
 import Home from "./pages/Home/Home";
 import Room from "./pages/Room/Room";
 import RoomDetails from "./pages/Room/RoomDetails/RoomDetails";
 import Login from "./pages/Login/Login";
+import Service from "./pages/Service/Service";
 
 const router = createBrowserRouter([
   {
@@ -36,6 +37,11 @@ const router = createBrowserRouter([
           }
           return getRoom(params.id);
         },
+      },
+      {
+        path: "/services",
+        element: <Service />,
+        loader: getAllServices,
       },
     ],
   },

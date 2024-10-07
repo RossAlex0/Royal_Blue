@@ -16,7 +16,7 @@ export default function NavBar() {
 
   const navElements = [
     { path: "/room", name: "Les chambres" },
-    { path: "#", name: "Les services" },
+    { path: "/services", name: "Les services" },
     { path: "#", name: "À propos de RoyalBlue" },
     { path: "#", name: "Contact" },
     ...(!userLog ? [{ path: "/login", name: "Connexion" }] : []),
