@@ -112,3 +112,9 @@
   cursor: pointer;
   color: var(--grey-color);
 }
+.login_msgError {
+  color: red;
+  position: absolute;
+  font-size: 14px;
+  margin-top: 4.5rem;
+}

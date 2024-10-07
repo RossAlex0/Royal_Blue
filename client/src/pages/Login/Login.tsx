@@ -19,6 +19,7 @@ export default function Login() {
 
   const [emailValue, setEmaileValue] = useState<string>("");
   const [passwordValue, setPasswordValue] = useState<string>("");
+  const [msgError, setMsgError] = useState<string | undefined>();
 
   const [switchRegister, setSwitchRegister] = useState<boolean>(false);
 
@@ -29,7 +30,13 @@ export default function Login() {
         email: emailValue,
         password: passwordValue,
       });
-      setUserLog(response);
+      if (response) {
+        setUserLog(response);
+        navigate("/");
+      } else {
+        setMsgError("Adresse mail ou mot de passe incorrect");
+        setTimeout(() => setMsgError(undefined), 5000);
+      }
     }
   };
 
@@ -69,6 +76,7 @@ export default function Login() {
                     }}
                   />
                 </div>
+                {msgError && <p className="login_msgError">{msgError}</p>}
                 <div>
                   <ButtonValidated
                     tools={{
