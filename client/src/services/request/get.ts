@@ -36,6 +36,13 @@ export function getAllServices() {
     .catch((err) => console.error(err));
 }
 
+export function getService(id: string) {
+  return myAxios
+    .get(`/services/${id}`)
+    .then((res) => res.data)
+    .catch((err) => err);
+}
+
 // ## STYLE ## \\
 
 export function getAllRoomStyle(setter: (state: StyleInterface[]) => void) {
