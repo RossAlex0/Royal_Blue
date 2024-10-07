@@ -1,11 +1,12 @@
 import React from "react";
-import { useLoaderData } from "react-router-dom";
+import { useLoaderData, useNavigate } from "react-router-dom";
 import { ServicesInterface } from "./type";
 
 import "./service.css";
 
 export default function Service() {
   const servicesData = useLoaderData() as ServicesInterface[];
+  const navigate = useNavigate();
 
   return (
     <section className="services">
@@ -19,6 +20,7 @@ export default function Service() {
             backgroundRepeat: "no-repeat",
             backgroundPosition: "center",
           }}
+          onClick={() => navigate(`/services/${service.id}`)}
         >
           <h2 className="services_element_text">{service.name}</h2>
         </div>
