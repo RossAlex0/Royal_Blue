@@ -3,7 +3,7 @@ const tables = require("../../database/tables");
 const login = async (req, res, next) => {
   try {
     res
-      .cookie("auth", req.token, {
+      .cookie("RbAuth", req.token, {
         httpOnly: true,
       })
       .json({
