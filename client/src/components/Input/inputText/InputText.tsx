@@ -14,10 +14,15 @@ export default function InputText({ tools }: { tools: ToolsInterface }) {
       <label className="inputText_label">{tools.label}</label>
       <div className="inputText_container">
         <input
-          type={tools.type}
+          type={isVisible ? "text" : tools.type}
+          name={tools.name}
           placeholder={tools.placeholder}
           value={tools.state}
-          onChange={(e) => tools.setter(e.target.value)}
+          onChange={(event) =>
+            tools.setter
+              ? tools.setter(event.target.value)
+              : tools.HandleChange && tools.HandleChange(event)
+          }
           className="inputText_container_input"
         />
         {tools.type === "password" &&
@@ -33,7 +38,7 @@ export default function InputText({ tools }: { tools: ToolsInterface }) {
               src={visible}
               alt="Open eyes"
               onClick={() => setIsVisible(false)}
-              className="inputText_image"
+              className="inputText_container_image"
             />
           ))}
       </div>
