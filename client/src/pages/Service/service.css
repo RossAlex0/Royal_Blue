@@ -1,0 +1,29 @@
+.services {
+  height: 100vh;
+  width: 100%;
+  display: flex;
+}
+.services_element {
+  width: 100%;
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+  padding: 7rem 0;
+  transition: flex-grow 1s ease;
+  cursor: pointer;
+}
+.services_element:hover {
+  flex-grow: 1.5;
+}
+.services_element_text {
+  width: 60%;
+  color: var(--white-color);
+  font-family: var(--text-font);
+  font-weight: 100;
+  text-shadow:
+    -0.5px -0.5px 0 var(--dark-grey),
+    0.5px -0.5px 0 var(--dark-grey),
+    -0.5px 0.5px 0 var(--dark-grey),
+    0.5px 0.5px 0 var(--dark-grey);
+}
