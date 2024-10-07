@@ -1,24 +1,26 @@
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 
 import logoAnimated from "../../assets/logo/logoAnimate.svg";
 import logoDark from "../../assets/logo/logoDark.svg";
 
 import "./navBar.css";
+import { UserContext } from "../../services/context/UserContext";
+import { UserContextInterface } from "../../services/context/type";
 
 export default function NavBar() {
+  const { userLog } = useContext(UserContext) as UserContextInterface;
   const location = useLocation();
-  const navigate = useNavigate();
 
   const [isActive, setIsActive] = useState<boolean>(false);
-  const [toLog, setToLog] = useState<boolean>(false);
 
   const navElements = [
     { path: "/room", name: "Les chambres" },
     { path: "#", name: "Les services" },
     { path: "#", name: "À propos de RoyalBlue" },
     { path: "#", name: "Contact" },
-    { path: "/login", name: "Connexion" },
+    ...(!userLog ? [{ path: "/login", name: "Connexion" }] : []),
+    ...(userLog ? [{ path: `/profile/${userLog.id}`, name: "Profil" }] : []),
   ];
 
   // useEffect(() => {

@@ -4,7 +4,6 @@ import InputText from "../Input/inputText/InputText";
 import { RegisterPasswInterface } from "./type";
 import ButtonValidated from "../Button/ButtonValidated";
 import { postCostumer } from "../../services/request/post";
-import { useNavigate } from "react-router-dom";
 
 export default function RegisterPassword({
   userInfo,
