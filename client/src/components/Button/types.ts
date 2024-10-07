@@ -1,5 +1,5 @@
 export interface BtnInterface {
   type: "button" | "submit" | "reset";
-  click?: () => void;
+  click?: (event: any) => void;
   text: string;
 }
