@@ -5,15 +5,15 @@ import { UserInfoInterface } from "../../components/Register/type";
 // ## LOGIN ## \\
 
 export function postLogin({
-  mail,
+  email,
   password,
 }: {
-  mail: string;
+  email: string;
   password: string;
 }) {
   return myAxios
-    .post("/login", { mail, password })
-    .then((res) => console.info(res))
+    .post("/login", { email, password }, { withCredentials: true })
+    .then((res) => res.data)
     .catch((err) => console.error(err));
 }
 
