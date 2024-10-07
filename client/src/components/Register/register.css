@@ -1,0 +1,13 @@
+#register_form {
+  display: flex;
+  flex-direction: column;
+  margin-top: -2rem;
+  height: auto;
+}
+#register_form > .inputText_label {
+  margin-top: 0.7rem;
+}
+#register_form > .register_btnValide {
+  margin-top: 1.5rem;
+  height: 2.5rem;
+}
