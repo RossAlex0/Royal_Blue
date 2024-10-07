@@ -4,9 +4,8 @@ const tables = require("../../database/tables");
 
 const checkPassword = async (req, res, next) => {
   try {
-    const { mail, password } = req.body;
-
-    const costumer = await tables.costumer.readByEmail(mail);
+    const { email, password } = req.body;
+    const costumer = await tables.costumer.readByEmail(email);
 
     if (!costumer) {
       throw new Error("Véréfié votre adresse e-mail.");
