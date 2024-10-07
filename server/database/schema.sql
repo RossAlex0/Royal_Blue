@@ -121,8 +121,8 @@ INSERT INTO country (name) VALUES
 ('Pays-Bas');
 
 INSERT INTO costumer (lastname, firstname, password, email, phone, country_id) VALUES 
-('Dupont', 'Jean', 'password123', 'jean.dupont@example.com', 123456789, 1),
-('Martin', 'Sophie', 'password456', 'sophie.martin@example.com', 987654321, 5),
-('Bernard', 'Luc', 'password789', 'luc.bernard@example.com', 123123123, 7),
-('Leroy', 'Marie', 'password321', 'marie.leroy@example.com', 456456456, 1);
+('Dupont', 'Jean', '$argon2id$v=19$m=19456,t=2,p=1$ZJn7g1SPyU7hscG/zr8sKg$YYXtJNenmq9/QP01uiOvJohOS+I3JVr8xBmLxWxoMqw', 'jean.dupont@example.com', 123456789, 1),
+('Martin', 'Sophie', '$argon2id$v=19$m=19456,t=2,p=1$ZJn7g1SPyU7hscG/zr8sKg$YYXtJNenmq9/QP01uiOvJohOS+I3JVr8xBmLxWxoMqw', 'sophie.martin@example.com', 987654321, 5),
+('Bernard', 'Luc', '$argon2id$v=19$m=19456,t=2,p=1$ZJn7g1SPyU7hscG/zr8sKg$YYXtJNenmq9/QP01uiOvJohOS+I3JVr8xBmLxWxoMqw', 'luc.bernard@example.com', 123123123, 7),
+('Leroy', 'Marie', '$argon2id$v=19$m=19456,t=2,p=1$ZJn7g1SPyU7hscG/zr8sKg$YYXtJNenmq9/QP01uiOvJohOS+I3JVr8xBmLxWxoMqw', 'marie.leroy@example.com', 456456456, 1);
 
