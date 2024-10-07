@@ -1,5 +1,15 @@
 import myAxios from "../instance";
-import { RoomInterface, StyleInterface } from "../../pages/Room/type";
+import { StyleInterface } from "../../pages/Room/type";
+import { UserLog } from "../context/type";
+
+// ## COSTUMERS ## \\
+
+export function getCostumerByCookie(setter: (state: UserLog) => void) {
+  myAxios
+    .get("/login", { withCredentials: true })
+    .then((response) => setter(response.data))
+    .catch((error) => console.error(error));
+}
 
 // ## ROOM ## \\
 

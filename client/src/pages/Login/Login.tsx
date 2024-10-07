@@ -1,24 +1,34 @@
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
+import { useNavigate } from "react-router-dom";
+
+import { UserContext } from "../../services/context/UserContext";
+import { postLogin } from "../../services/request/post";
+import Register from "../../components/Register/Register";
 
 import logoDark from "../../assets/logo/logoDark.svg";
 import InputText from "../../components/Input/inputText/InputText";
 import ButtonValidated from "../../components/Button/ButtonValidated";
 
 import "./login.css";
-import { postLogin } from "../../services/request/post";
-import Register from "../../components/Register/Register";
-import { useNavigate } from "react-router-dom";
+import { UserContextInterface } from "../../services/context/type";
 
 export default function Login() {
   const navigate = useNavigate();
+  const { setUserLog } = useContext(UserContext) as UserContextInterface;
+
   const [emailValue, setEmaileValue] = useState<string>("");
   const [passwordValue, setPasswordValue] = useState<string>("");
 
   const [switchRegister, setSwitchRegister] = useState<boolean>(false);
 
-  const HandleSendLog = () => {
+  const HandleSendLog = async (event: any) => {
+    event?.preventDefault();
     if (emailValue && passwordValue) {
-      postLogin({ mail: emailValue, password: passwordValue });
+      const response = await postLogin({
+        email: emailValue,
+        password: passwordValue,
+      });
+      setUserLog(response);
     }
   };
 
