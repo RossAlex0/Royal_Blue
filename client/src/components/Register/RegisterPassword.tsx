@@ -3,20 +3,39 @@ import InputText from "../Input/inputText/InputText";
 
 import { RegisterPasswInterface } from "./type";
 import ButtonValidated from "../Button/ButtonValidated";
+import { postCostumer } from "../../services/request/post";
+import { useNavigate } from "react-router-dom";
 
 export default function RegisterPassword({
   userInfo,
   HandleChange,
-  setSwitchPassword,
+  setSwitchRegister,
 }: RegisterPasswInterface) {
-  const [confirmPassword, setConfirmPassword] = useState<string>();
+  const [confirmPassword, setConfirmPassword] = useState<string>("");
+  const [msgError, setMsgError] = useState<String>("");
+
+  const HandlePostCostumer = async () => {
+    if (userInfo.password !== confirmPassword) {
+      setMsgError("Les mots de passe ne sont pas identiques");
+    } else if (
+      userInfo.lastname == "" ||
+      userInfo.firstname == "" ||
+      userInfo.email == ""
+    ) {
+      setMsgError("Veuillez renseigner tous les champs obligatoires");
+    } else {
+      await postCostumer(userInfo);
+      setSwitchRegister(false);
+    }
+    setTimeout(() => setMsgError(""), 5000);
+  };
 
   return (
     <>
       <InputText
         tools={{
           type: "text",
-          name: "country",
+          name: "country_id",
           label: "Votre pays",
           placeholder: "Votre pays",
           state: userInfo.country_id,
@@ -48,10 +67,11 @@ export default function RegisterPassword({
           tools={{
             type: "button",
             text: "Valider",
-            click: () => setSwitchPassword(false),
+            click: HandlePostCostumer,
           }}
         />
       </div>
+      {msgError && <p className="register_msgError">{msgError}</p>}
     </>
   );
 }

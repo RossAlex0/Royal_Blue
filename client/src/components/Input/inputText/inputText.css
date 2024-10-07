@@ -26,6 +26,7 @@
 }
 .inputText_container_image {
   position: absolute;
+  cursor: pointer;
   height: 18px;
   margin-right: 1rem;
 }

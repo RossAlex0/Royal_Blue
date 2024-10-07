@@ -5,7 +5,11 @@ import React from "react";
 import RegisterPassword from "./RegisterPassword";
 import ButtonValidated from "../Button/ButtonValidated";
 
-export default function Register() {
+export default function Register({
+  setSwitchRegister,
+}: {
+  setSwitchRegister: (value: boolean) => void;
+}) {
   const [switchPassword, setSwitchPassword] = useState<boolean>(false);
   const [userInfo, setUserInfo] = useState({
     lastname: "",
@@ -15,7 +19,6 @@ export default function Register() {
     country_id: "",
   });
 
-  console.info(userInfo);
   const HandleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     const { name, value } = event.target;
     setUserInfo({ ...userInfo, [name]: value });
@@ -48,10 +51,10 @@ export default function Register() {
           <InputText
             tools={{
               type: "text",
-              name: "mail",
+              name: "email",
               label: "Email *",
               placeholder: "Votre adresse mail",
-              state: userInfo.lastname,
+              state: userInfo.email,
               HandleChange: HandleChange,
             }}
           />
@@ -69,7 +72,7 @@ export default function Register() {
         <RegisterPassword
           userInfo={userInfo}
           HandleChange={HandleChange}
-          setSwitchPassword={setSwitchPassword}
+          setSwitchRegister={setSwitchRegister}
         />
       )}
     </div>

@@ -7,12 +7,14 @@ import ButtonValidated from "../../components/Button/ButtonValidated";
 import "./login.css";
 import { postLogin } from "../../services/request/post";
 import Register from "../../components/Register/Register";
+import { useNavigate } from "react-router-dom";
 
 export default function Login() {
+  const navigate = useNavigate();
   const [emailValue, setEmaileValue] = useState<string>("");
   const [passwordValue, setPasswordValue] = useState<string>("");
 
-  const [switchRegister, SetSwitchRegister] = useState<boolean>(false);
+  const [switchRegister, setSwitchRegister] = useState<boolean>(false);
 
   const HandleSendLog = () => {
     if (emailValue && passwordValue) {
@@ -29,7 +31,7 @@ export default function Login() {
         <div className="login_card_form">
           <form>
             {switchRegister ? (
-              <Register />
+              <Register setSwitchRegister={setSwitchRegister} />
             ) : (
               <>
                 <div>
@@ -71,18 +73,22 @@ export default function Login() {
           {!switchRegister && (
             <p>
               Vous n’avez pas votre compte ?{" "}
-              <span onClick={() => SetSwitchRegister(true)}>
+              <span onClick={() => setSwitchRegister(true)}>
                 Créer un compte
               </span>
             </p>
           )}
         </div>
-        {switchRegister && (
+        {switchRegister ? (
           <span
             className="login_card_return"
-            onClick={() => SetSwitchRegister(false)}
+            onClick={() => setSwitchRegister(false)}
           >
             ⬅
+          </span>
+        ) : (
+          <span className="login_card_return" onClick={() => navigate("/")}>
+            𝗫
           </span>
         )}
       </div>
