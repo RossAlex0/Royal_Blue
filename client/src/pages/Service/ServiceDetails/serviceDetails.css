@@ -1,0 +1,6 @@
+.serviceDetail {
+  height: 100vh;
+  width: 100%;
+  background: url("../../../assets/images/backgroundService.svg");
+  background-size: cover;
+}
