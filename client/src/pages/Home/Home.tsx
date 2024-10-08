@@ -1,15 +1,14 @@
 import React, { useEffect, useState } from "react";
 import DatePicker from "react-datepicker";
 
-import { backgroundParallaxe } from "./utils";
+import { backgroundParallaxe, numberOfNight } from "./utils";
 
 import ButtonValidated from "../../components/Button/ButtonValidated";
 import InputPerson from "../../components/Input/InputPerson/InputPerson";
 
-import Calendar from "../../assets/icon/calendar.svg";
-
-import "react-datepicker/dist/react-datepicker.css";
 import "./home.css";
+import InputStartDate from "../../components/Input/InputeDate/InputStartDate";
+import InputEndDate from "../../components/Input/InputeDate/InputEndDate";
 
 export default function Home() {
   const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
@@ -24,6 +23,9 @@ export default function Home() {
     setIsVisible(true);
   }, []);
 
+  const HanldeClickReserv = () => {
+    startDate && endDate && console.info(numberOfNight(startDate, endDate));
+  };
   return (
     <section
       className="home"
@@ -40,35 +42,27 @@ export default function Home() {
         </p>
       </div>
       <div className="home_date">
-        <div>
-          <DatePicker
-            selected={startDate}
-            onChange={(date: Date | null) => setStartDate(date ?? undefined)}
-            selectsStart
-            minDate={new Date()}
-            startDate={startDate}
-            endDate={endDate}
-            placeholderText="Arrivée"
-          />
-          <img src={Calendar} alt="calendar" className="home_date_picture" />
-        </div>
-        <div>
-          <DatePicker
-            selected={endDate}
-            onChange={(date: Date | null) => setEndDate(date ?? undefined)}
-            selectsEnd
-            startDate={startDate}
-            endDate={endDate}
-            minDate={startDate ? startDate : new Date()}
-            placeholderText="Départ"
-          />
-          <img src={Calendar} alt="calendar" className="home_date_picture" />
-        </div>
+        <InputStartDate
+          startDate={startDate}
+          setStartDate={setStartDate}
+          endDate={endDate}
+        />
+        <InputEndDate
+          startDate={startDate}
+          endDate={endDate}
+          setEndDate={setEndDate}
+        />
         <div>
           <InputPerson setter={setNbPerson} />
         </div>
         <div>
-          <ButtonValidated tools={{ type: "button", text: "Réserver" }} />
+          <ButtonValidated
+            tools={{
+              type: "button",
+              text: "Réserver",
+              click: HanldeClickReserv,
+            }}
+          />
         </div>
       </div>
     </section>

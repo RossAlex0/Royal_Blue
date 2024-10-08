@@ -21,3 +21,13 @@ export function whileNumbers(nb: number): { value: number; text: string }[] {
   }
   return array;
 }
+
+export function numberOfNight(startDate: Date, endDate: Date): number {
+  if (startDate && endDate) {
+    const timeDiff = Math.abs(endDate.getTime() - startDate.getTime());
+    const daysDiff = Math.ceil(timeDiff / (1000 * 3600 * 24));
+
+    return daysDiff - 1;
+  }
+  return 0;
+}
