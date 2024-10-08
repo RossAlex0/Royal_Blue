@@ -1,16 +1,17 @@
-import React from "react";
+import React, { useContext } from "react";
 import DatePicker from "react-datepicker";
 
-import { DateEndInterface } from "./type";
+import { DateContextInterface } from "../../../services/context/type";
+import { DateContext } from "../../../services/context/DateContext";
 
 import Calendar from "../../../assets/icon/calendar.svg";
 import "react-datepicker/dist/react-datepicker.css";
 
-export default function InputEndDate({
-  startDate,
-  endDate,
-  setEndDate,
-}: DateEndInterface) {
+export default function InputEndDate() {
+  const { startDate, endDate, setEndDate } = useContext(
+    DateContext
+  ) as DateContextInterface;
+
   return (
     <div className="endDate">
       <DatePicker

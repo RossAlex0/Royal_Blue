@@ -1,8 +1,11 @@
-import React from "react";
+import React, { useContext } from "react";
 import { Link } from "react-router-dom";
-
 import { useLoaderData } from "react-router-dom";
+
+import { DateContext } from "../../../services/context/DateContext";
 import { RoomInterface } from "../type";
+import InputStartDate from "../../../components/Input/InputeDate/InputStartDate";
+import InputEndDate from "../../../components/Input/InputeDate/InputEndDate";
 
 import chefcuis from "../../../assets/icon/chefcuis.svg";
 import chauffeur from "../../../assets/icon/chauffeur.svg";
@@ -12,19 +15,16 @@ import styliste from "../../../assets/icon/styliste.svg";
 import tele from "../../../assets/icon/tele.svg";
 import arrow from "../../../assets/icon/arrowblue.svg";
 import "./roomDetails.css";
+import { DateContextInterface } from "../../../services/context/type";
 
 export default function RoomDetails() {
   const roomData = useLoaderData() as RoomInterface;
-  console.info(roomData);
+  const { startDate, endDate, setStartDate, setEndDate } = useContext(
+    DateContext
+  ) as DateContextInterface;
+
   return (
-    <section
-      className="roomDetail"
-      // style={{
-      //   background: `url(${import.meta.env.VITE_PICTURE_ROOM_URL}${roomData.picture.room})`,
-      //   backgroundSize: "cover",
-      //   backgroundPosition: "bottom",
-      // }}
-    >
+    <section className="roomDetail">
       <Link to="/room" className="roomDetail_back">
         <img src={arrow} alt="arrow back" />
         <p>Retour aux chambres</p>
@@ -94,7 +94,14 @@ export default function RoomDetails() {
           </div>
         </div>
         <div className="roomDetail_element_reserv">
-          <div></div>
+          <div>
+            <h1>Réservation</h1>
+            <p>
+              {roomData.price}€ <span>/ Nuit</span>
+            </p>
+            <InputStartDate />
+            <InputEndDate />
+          </div>
         </div>
       </div>
     </section>

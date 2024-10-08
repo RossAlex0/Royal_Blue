@@ -5,15 +5,18 @@ import NavBar from "./components/NavBar/NavBar";
 
 import "./style/global.css";
 import { UserProvider } from "./services/context/UserContext";
+import { DateProvider } from "./services/context/DateContext";
 
 function App() {
   const location = useLocation();
   return (
     <UserProvider>
-      <main>
-        {location.pathname !== "/login" && <NavBar />}
-        <Outlet />
-      </main>
+      <DateProvider>
+        <main>
+          {location.pathname !== "/login" && <NavBar />}
+          <Outlet />
+        </main>
+      </DateProvider>
     </UserProvider>
   );
 }
