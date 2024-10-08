@@ -2,8 +2,10 @@ import React from "react";
 import { useLoaderData } from "react-router-dom";
 import { ServicesInterface } from "../type";
 
+import "./serviceDetails.css";
+
 export default function ServiceDetails() {
   const service = useLoaderData() as ServicesInterface;
 
-  return <h1>{service.name}</h1>;
+  return <section className="serviceDetail"></section>;
 }
