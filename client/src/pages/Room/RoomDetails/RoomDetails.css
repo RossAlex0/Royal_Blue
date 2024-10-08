@@ -108,6 +108,24 @@
 }
 .roomDetail_element_reserv > div {
   height: 100%;
+  padding: 1.5rem 2rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
   background-color: var(--white-color);
   border-radius: 8px;
+}
+.roomDetail_element_reserv h1 {
+  font-family: var(--text-font);
+  font-size: 1.8rem;
+  font-weight: lighter;
+  margin-bottom: 1%;
+}
+.roomDetail_element_reserv p,
+.roomDetail_element_reserv h1 {
+  color: var(--primary-color);
+}
+.roomDetail_element_reserv p > span {
+  font-family: var(--text-font);
+  font-weight: lighter;
 }

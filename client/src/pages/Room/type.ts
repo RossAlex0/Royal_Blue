@@ -13,6 +13,7 @@ export interface RoomInterface {
   sea_view: boolean;
   style_name: string;
   picture: Picture;
+  price: number;
 }
 export interface StyleInterface {
   id: number;
