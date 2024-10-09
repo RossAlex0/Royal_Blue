@@ -13,7 +13,7 @@ export default function InputStartDate() {
   ) as DateContextInterface;
 
   return (
-    <div className="startEnd">
+    <div className="startDate">
       <DatePicker
         selected={startDate}
         onChange={(date: Date | null) => date && setStartDate(date)}
