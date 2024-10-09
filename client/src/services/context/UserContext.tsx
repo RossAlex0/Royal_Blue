@@ -8,7 +8,7 @@ function UserProvider({ children }: { children: React.ReactNode }) {
   const [userLog, setUserLog] = useState<UserLog | null>(null);
 
   const props = useMemo(() => ({ userLog, setUserLog }), [userLog]);
-
+  console.info(userLog);
   useEffect(() => {
     getCostumerByCookie(setUserLog);
   }, []);
