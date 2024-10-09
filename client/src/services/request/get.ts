@@ -1,6 +1,7 @@
 import myAxios from "../instance";
 import { StyleInterface } from "../../pages/Room/type";
 import { UserLog } from "../context/type";
+import { CountryInterface } from "../../pages/Profil/type";
 
 // ## COSTUMERS ## \\
 
@@ -9,6 +10,13 @@ export function getCostumerByCookie(setter: (state: UserLog) => void) {
     .get("/login", { withCredentials: true })
     .then((response) => setter(response.data))
     .catch((error) => console.error(error));
+}
+
+export function getCosutmerById(id: string) {
+  return myAxios
+    .get(`/costumers/${id}`)
+    .then((res) => res.data)
+    .catch((err) => console.error(err));
 }
 
 // ## ROOM ## \\
@@ -49,5 +57,14 @@ export function getAllRoomStyle(setter: (state: StyleInterface[]) => void) {
   myAxios
     .get("/styles")
     .then((res) => setter(res.data))
+    .catch((err) => console.error(err));
+}
+
+// ## STYLE ## \\
+
+export function getAllCountry() {
+  return myAxios
+    .get("/countries")
+    .then((res) => res.data)
     .catch((err) => console.error(err));
 }
