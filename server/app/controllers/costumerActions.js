@@ -61,7 +61,6 @@ const read = async (req, res, next) => {
 
 const add = async (req, res, next) => {
   const costumer = req.body;
-  console.info(costumer);
   try {
     const insertId = await tables.costumer.create(costumer);
 
@@ -70,12 +69,54 @@ const add = async (req, res, next) => {
     next(err);
   }
 };
+
+const edit = async (req, res, next) => {
+  try {
+    const costumer = {
+      id: req.params.id,
+      lastname: req.body.lastname,
+      firstname: req.body.firstname,
+      email: req.body.email,
+      country: req.body.country_id,
+    };
+
+    await tables.costumer.update(costumer);
+    res.sendStatus(204);
+  } catch (error) {
+    next(error);
+  }
+};
+const editPassword = async (req, res, next) => {
+  try {
+    const costumer = {
+      id: req.params.id,
+      password: req.body.password,
+    };
+
+    await tables.costumer.updatePassword(costumer);
+    console.info("mdp modifié");
+    res.sendStatus(204);
+  } catch (error) {
+    next(error);
+  }
+};
+
+const destroy = async (req, res, next) => {
+  try {
+    await tables.costumer.delete(req.params.id);
+    console.info("user deleted");
+    res.status(204).send("Deleted");
+  } catch (error) {
+    next(error);
+  }
+};
 module.exports = {
   login,
   browse,
   read,
-  // edit,
+  edit,
+  editPassword,
   add,
-  // destroy,
+  destroy,
   loginByCookie,
 };
