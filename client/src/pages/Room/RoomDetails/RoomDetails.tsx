@@ -1,11 +1,11 @@
-import React, { useContext } from "react";
+import React, { useContext, useState } from "react";
 import { Link } from "react-router-dom";
 import { useLoaderData } from "react-router-dom";
 
-import { DateContext } from "../../../services/context/DateContext";
 import { RoomInterface } from "../type";
 import InputStartDate from "../../../components/Input/InputeDate/InputStartDate";
 import InputEndDate from "../../../components/Input/InputeDate/InputEndDate";
+import InputPerson from "../../../components/Input/InputPerson/InputPerson";
 
 import chefcuis from "../../../assets/icon/chefcuis.svg";
 import chauffeur from "../../../assets/icon/chauffeur.svg";
@@ -15,13 +15,11 @@ import styliste from "../../../assets/icon/styliste.svg";
 import tele from "../../../assets/icon/tele.svg";
 import arrow from "../../../assets/icon/arrowblue.svg";
 import "./roomDetails.css";
-import { DateContextInterface } from "../../../services/context/type";
 
 export default function RoomDetails() {
   const roomData = useLoaderData() as RoomInterface;
-  const { startDate, endDate, setStartDate, setEndDate } = useContext(
-    DateContext
-  ) as DateContextInterface;
+
+  const [nbPerson, setNbPerson] = useState<number | string>();
 
   return (
     <section className="roomDetail">
@@ -101,6 +99,14 @@ export default function RoomDetails() {
             </p>
             <InputStartDate />
             <InputEndDate />
+            <div className="roomDetail_element__inputPerson">
+              <InputPerson setter={setNbPerson} />
+            </div>
+            <div>
+              <div></div>
+              <div></div>
+              {/* ICCCICICICICIICICICIICICI */}
+            </div>
           </div>
         </div>
       </div>

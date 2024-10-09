@@ -129,3 +129,26 @@
   font-family: var(--text-font);
   font-weight: lighter;
 }
+.roomDetail_element_reserv .startDate {
+  margin-top: 10%;
+}
+.roomDetail_element_reserv .endDate,
+.roomDetail_element_reserv .startDate {
+  border: 1px solid var(--grey-color);
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  width: 100%;
+  margin-bottom: 1rem;
+  border-radius: 8px;
+}
+.roomDetail_element__inputPerson {
+  width: 100%;
+  border: 1px solid var(--grey-color);
+  padding: 1rem 0;
+  display: flex;
+  margin-right: 0;
+  align-items: center;
+  justify-content: flex-end;
+  border-radius: 8px;
+}
