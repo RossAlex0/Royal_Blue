@@ -3,8 +3,10 @@ import ReactDOM from "react-dom/client";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 
 import {
+  getAllCountry,
   getAllRoom,
   getAllServices,
+  getCosutmerById,
   getRoom,
   getService,
 } from "./services/request/get";
@@ -16,6 +18,7 @@ import RoomDetails from "./pages/Room/RoomDetails/RoomDetails";
 import Login from "./pages/Login/Login";
 import Service from "./pages/Service/Service";
 import ServiceDetails from "./pages/Service/ServiceDetails/ServiceDetails";
+import Profil from "./pages/Profil/Profil";
 
 const router = createBrowserRouter([
   {
@@ -57,6 +60,19 @@ const router = createBrowserRouter([
             throw new Error("Id is undifined");
           }
           return getService(params.id);
+        },
+      },
+      {
+        path: "/profil/:id",
+        element: <Profil />,
+        loader: async ({ params }) => {
+          if (!params.id) {
+            throw new Error("Id is undifined");
+          }
+          const costumerData = await getCosutmerById(params.id);
+          const countriesData = await getAllCountry();
+
+          return { costumerData, countriesData };
         },
       },
     ],

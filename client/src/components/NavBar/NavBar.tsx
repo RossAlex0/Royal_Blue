@@ -20,7 +20,7 @@ export default function NavBar() {
     { path: "#", name: "À propos de RoyalBlue" },
     { path: "#", name: "Contact" },
     ...(!userLog ? [{ path: "/login", name: "Connexion" }] : []),
-    ...(userLog ? [{ path: `/profile/${userLog.id}`, name: "Profil" }] : []),
+    ...(userLog ? [{ path: `/profil/${userLog.id}`, name: "Profil" }] : []),
   ];
 
   // useEffect(() => {

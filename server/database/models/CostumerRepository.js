@@ -23,7 +23,10 @@ class CostumerRepository extends AbstractRepository {
 
   async read(id) {
     const [rows] = await this.database.query(
-      `select * from ${this.table} where id = ?`,
+      `select ${this.table}.* , country.name as country 
+      from ${this.table} 
+      JOIN country ON country.id = ${this.table}.country_id
+      where ${this.table}.id = ?`,
       [id]
     );
 
@@ -45,6 +48,31 @@ class CostumerRepository extends AbstractRepository {
       [mail]
     );
     return rows[0];
+  }
+
+  async update(user) {
+    const result = await this.database.query(
+      `UPDATE ${this.table} set lastname = ?, firstname = ? , email = ?, country_id = ? where id = ?`,
+      [user.lastname, user.firstname, user.email, user.country, user.id]
+    );
+    return result.affectedRows;
+  }
+
+  async updatePassword(user) {
+    const result = await this.database.query(
+      `UPDATE ${this.table} set password = ? where id = ?`,
+      [user.password, user.id]
+    );
+    console.info(result);
+    return result.affectedRows;
+  }
+
+  async delete(id) {
+    const [result] = await this.database.query(
+      `delete from ${this.table} where id = ?`,
+      [id]
+    );
+    return result.affectedRows;
   }
 }
 

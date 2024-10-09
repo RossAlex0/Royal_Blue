@@ -8,7 +8,7 @@ export interface UserLog {
 }
 export interface UserContextInterface {
   userLog: UserLog | null;
-  setUserLog: (userLog: UserLog) => void;
+  setUserLog: (userLog: UserLog | null) => void;
 }
 
 export interface DateContextInterface {
