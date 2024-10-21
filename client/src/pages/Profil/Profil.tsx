@@ -22,7 +22,7 @@ export default function Profil() {
     email: costumerData.email,
     country_id: costumerData.country_id,
   });
-  console.info(userInfo);
+
   const [passwordValue, setPasswordValue] = useState<string>("");
   const [confirmValue, setConfirmValue] = useState<string>("");
   const [msgError, setMsgError] = useState<string | undefined>();
@@ -51,6 +51,7 @@ export default function Profil() {
     setUserLog(null);
     setTimeout(() => navigate("/"), 500);
   };
+
   return (
     <section className="profil">
       <div className="profil_element">
